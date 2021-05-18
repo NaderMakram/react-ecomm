@@ -41,7 +41,7 @@ export const CartProvider = ({ children }) => {
 
   // clear cart
   const clearCart = () => {
-    dispatch({ type: CLEAR_CART, payload: id });
+    dispatch({ type: CLEAR_CART });
   };
 
   // local storage
