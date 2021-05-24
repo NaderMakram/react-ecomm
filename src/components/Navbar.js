@@ -10,6 +10,7 @@ import { useUserContext } from "../context/user_context";
 
 const Nav = () => {
   const { openSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
 
   const renderLinks = () => {
     return links.map((link) => {
@@ -33,7 +34,14 @@ const Nav = () => {
             <FaBars onClick={() => openSidebar()} />
           </button>
         </div>
-        <ul className="nav-links">{renderLinks()}</ul>
+        <ul className="nav-links">
+          {renderLinks()}
+          {myUser && (
+            <li>
+              <Link to="/checkout">checkout</Link>
+            </li>
+          )}
+        </ul>
         <CartButtons />
       </div>
     </NavContainer>
